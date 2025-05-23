@@ -8,7 +8,7 @@ export type Contact = {
   email: string;
   phone: string| null;
   adresse: string| null;
-  // description: string | null;
+  suggessions: string | null;
 };
 
 export default async function ContactsPrismaDBPage({

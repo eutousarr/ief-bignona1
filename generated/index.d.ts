@@ -3047,6 +3047,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMinAggregateOutputType = {
     id: string | null
+    name: string | null
     userId: string | null
     message: string | null
     createdAt: Date | null
@@ -3055,6 +3056,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMaxAggregateOutputType = {
     id: string | null
+    name: string | null
     userId: string | null
     message: string | null
     createdAt: Date | null
@@ -3063,6 +3065,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCountAggregateOutputType = {
     id: number
+    name: number
     userId: number
     message: number
     createdAt: number
@@ -3073,6 +3076,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMinAggregateInputType = {
     id?: true
+    name?: true
     userId?: true
     message?: true
     createdAt?: true
@@ -3081,6 +3085,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMaxAggregateInputType = {
     id?: true
+    name?: true
     userId?: true
     message?: true
     createdAt?: true
@@ -3089,6 +3094,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCountAggregateInputType = {
     id?: true
+    name?: true
     userId?: true
     message?: true
     createdAt?: true
@@ -3170,6 +3176,7 @@ export namespace Prisma {
 
   export type GuestbookEntryGroupByOutputType = {
     id: string
+    name: string
     userId: string
     message: string
     createdAt: Date
@@ -3195,6 +3202,7 @@ export namespace Prisma {
 
   export type GuestbookEntrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     userId?: boolean
     message?: boolean
     createdAt?: boolean
@@ -3204,6 +3212,7 @@ export namespace Prisma {
 
   export type GuestbookEntrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     userId?: boolean
     message?: boolean
     createdAt?: boolean
@@ -3213,6 +3222,7 @@ export namespace Prisma {
 
   export type GuestbookEntrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     userId?: boolean
     message?: boolean
     createdAt?: boolean
@@ -3222,13 +3232,14 @@ export namespace Prisma {
 
   export type GuestbookEntrySelectScalar = {
     id?: boolean
+    name?: boolean
     userId?: boolean
     message?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type GuestbookEntryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "message" | "createdAt" | "updatedAt", ExtArgs["result"]["guestbookEntry"]>
+  export type GuestbookEntryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userId" | "message" | "createdAt" | "updatedAt", ExtArgs["result"]["guestbookEntry"]>
   export type GuestbookEntryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -3246,6 +3257,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      name: string
       userId: string
       message: string
       createdAt: Date
@@ -3675,6 +3687,7 @@ export namespace Prisma {
    */
   interface GuestbookEntryFieldRefs {
     readonly id: FieldRef<"GuestbookEntry", 'String'>
+    readonly name: FieldRef<"GuestbookEntry", 'String'>
     readonly userId: FieldRef<"GuestbookEntry", 'String'>
     readonly message: FieldRef<"GuestbookEntry", 'String'>
     readonly createdAt: FieldRef<"GuestbookEntry", 'DateTime'>
@@ -13627,6 +13640,7 @@ export namespace Prisma {
 
   export const GuestbookEntryScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     userId: 'userId',
     message: 'message',
     createdAt: 'createdAt',
@@ -14017,6 +14031,7 @@ export namespace Prisma {
     OR?: GuestbookEntryWhereInput[]
     NOT?: GuestbookEntryWhereInput | GuestbookEntryWhereInput[]
     id?: StringFilter<"GuestbookEntry"> | string
+    name?: StringFilter<"GuestbookEntry"> | string
     userId?: StringFilter<"GuestbookEntry"> | string
     message?: StringFilter<"GuestbookEntry"> | string
     createdAt?: DateTimeFilter<"GuestbookEntry"> | Date | string
@@ -14026,6 +14041,7 @@ export namespace Prisma {
 
   export type GuestbookEntryOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
@@ -14038,6 +14054,7 @@ export namespace Prisma {
     AND?: GuestbookEntryWhereInput | GuestbookEntryWhereInput[]
     OR?: GuestbookEntryWhereInput[]
     NOT?: GuestbookEntryWhereInput | GuestbookEntryWhereInput[]
+    name?: StringFilter<"GuestbookEntry"> | string
     userId?: StringFilter<"GuestbookEntry"> | string
     message?: StringFilter<"GuestbookEntry"> | string
     createdAt?: DateTimeFilter<"GuestbookEntry"> | Date | string
@@ -14047,6 +14064,7 @@ export namespace Prisma {
 
   export type GuestbookEntryOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
@@ -14061,6 +14079,7 @@ export namespace Prisma {
     OR?: GuestbookEntryScalarWhereWithAggregatesInput[]
     NOT?: GuestbookEntryScalarWhereWithAggregatesInput | GuestbookEntryScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"GuestbookEntry"> | string
+    name?: StringWithAggregatesFilter<"GuestbookEntry"> | string
     userId?: StringWithAggregatesFilter<"GuestbookEntry"> | string
     message?: StringWithAggregatesFilter<"GuestbookEntry"> | string
     createdAt?: DateTimeWithAggregatesFilter<"GuestbookEntry"> | Date | string
@@ -14860,6 +14879,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCreateInput = {
     id?: string
+    name: string
     message: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14868,6 +14888,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedCreateInput = {
     id?: string
+    name: string
     userId: string
     message: string
     createdAt?: Date | string
@@ -14876,6 +14897,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14884,6 +14906,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14892,6 +14915,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCreateManyInput = {
     id?: string
+    name: string
     userId: string
     message: string
     createdAt?: Date | string
@@ -14900,6 +14924,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14907,6 +14932,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -15814,6 +15840,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
@@ -15822,6 +15849,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
@@ -15830,6 +15858,7 @@ export namespace Prisma {
 
   export type GuestbookEntryMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     userId?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
@@ -17261,6 +17290,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCreateWithoutUserInput = {
     id?: string
+    name: string
     message: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -17268,6 +17298,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedCreateWithoutUserInput = {
     id?: string
+    name: string
     message: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -17304,6 +17335,7 @@ export namespace Prisma {
     OR?: GuestbookEntryScalarWhereInput[]
     NOT?: GuestbookEntryScalarWhereInput | GuestbookEntryScalarWhereInput[]
     id?: StringFilter<"GuestbookEntry"> | string
+    name?: StringFilter<"GuestbookEntry"> | string
     userId?: StringFilter<"GuestbookEntry"> | string
     message?: StringFilter<"GuestbookEntry"> | string
     createdAt?: DateTimeFilter<"GuestbookEntry"> | Date | string
@@ -18076,6 +18108,7 @@ export namespace Prisma {
 
   export type GuestbookEntryCreateManyUserInput = {
     id?: string
+    name: string
     message: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -18083,6 +18116,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18090,6 +18124,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18097,6 +18132,7 @@ export namespace Prisma {
 
   export type GuestbookEntryUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

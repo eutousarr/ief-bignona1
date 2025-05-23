@@ -15,7 +15,6 @@ export async function  handleSubmission(formData: FormData ) {
     return redirect("/api/auth/register");
   }
   const message = formData.get("message");
-  const name = formData.get("name");
 
 //   let fileUrl = null;
 //   if (file instanceof File) {
@@ -26,7 +25,7 @@ export async function  handleSubmission(formData: FormData ) {
     data: {
       id: crypto.randomUUID(), // Generate a unique ID
       message: message as string,
-      name: fullname,
+      name: fullname as string,
       userId: user.id,
       updatedAt: new Date(), // Set the current date and time
     },

@@ -132,6 +132,7 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.GuestbookEntryScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   userId: 'userId',
   message: 'message',
   createdAt: 'createdAt',
