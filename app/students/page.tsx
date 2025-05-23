@@ -1,15 +1,9 @@
-import Header from '../components/Header';
-// import StudentForm from '@/app/students/_components/StudentForm';
-// import { prisma } from '../utils/db';
-import StudentsTable from '@/components/students/StudentsTable';
+import React from 'react'
 
-
-export default function StudentRoute() {
-  const p = 60;
+const page = () => {
   return (
-    <>
-      <Header heading={'Add Student'} description={'Add a new student'} />
-      <StudentsTable title='LES ELEVES' limit={p} />
-    </>
-  );
+    <div>page</div>
+  )
 }
+
+export default page
