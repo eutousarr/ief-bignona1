@@ -31,7 +31,7 @@ export default function Blog() {
               className="hover:opacity-90 transition-opacity"
             />
             <h1 className="hidden sm:flex text-white text-4xl font-bold font-jersey10">
-              CE2-2025
+              BFEM BLANC MAI-2025
             </h1>
           </div>
           <div className="flex items-center space-x-2">
@@ -147,7 +147,7 @@ export default function Blog() {
             </div>
             <div>
               <Link
-                href="/qcm/maths"
+                href="/"
                 className="bg-gradient-to-br from-primary to-[#7116bb] text-white py-3 px-8 rounded-lg shadow-md hover:opacity-90 transition"
               >
                 Testez vos connaissances

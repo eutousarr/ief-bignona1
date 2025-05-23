@@ -4,8 +4,13 @@ import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import EmailInput from "@/app/components/email"
 import {FaGoogle} from "react-icons/fa"; // Make sure to install react-icons if not already
 import Image from "next/image";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-const AuthPage: React.FC = () => {
+const AuthPage: React.FC = async () => {
+    const {getUser} = getKindeServerSession();
+
+    const user = await getUser();
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>

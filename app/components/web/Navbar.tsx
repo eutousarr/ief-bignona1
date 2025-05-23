@@ -74,19 +74,13 @@ export function Navbar() {
       { isLoading ? (
         <>
         <div className="flex items-center spqce-x-2">
-          <div>En charge...</div>
           <Link href='/dashboard'>Get Started</Link>
         </div>
         </>
       ) : user ? (
         <div className="flex items-center gap-4">
-          <p>{user.name} {user.email}</p>
-          <Link
-            href="/articles"
-            className="text-sm font-medium hover:text-blue-500 transition-colors"
-          >
-            Articles
-          </Link>
+          <p>{user.given_name} {user.family_name} ({user.email})</p>
+          
           <LogoutLink className={buttonVariants({ variant: "secondary" })}>
             Logout
           </LogoutLink>

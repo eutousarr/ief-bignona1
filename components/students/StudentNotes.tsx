@@ -41,18 +41,7 @@ export default function StudentNotes({ eleve }: { eleve: Eleve }) {
           </div>
         </div>
         <div>
-          {eleve.notes.map((note, index) => (
-            <div
-              key={index}
-              className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
-            >
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
-              <div className="space-y-1">
-                <p className="text-sm font-sansleading-none">{note.id}</p>
-                <p className="text-sm text-muted-foreground">{note.annee}</p>
-              </div>
-            </div>
-          ))}
+          
         </div>
       </CardContent>
       <CardFooter>
@@ -87,7 +76,7 @@ export default function StudentNotes({ eleve }: { eleve: Eleve }) {
                       Orthographe
                     </TableCell>
                     <TableCell className="w-[10px] font-sans text-sm text-center py-1">
-                      {note.ortho}
+                      {note.}
                     </TableCell>
                     <TableCell className="min-w-[20px] font-sans text-sm text-center py-1"></TableCell>
                   </TableRow>

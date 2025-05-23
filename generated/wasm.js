@@ -120,6 +120,24 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  profileImage: 'profileImage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.GuestbookEntryScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  message: 'message',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.EtablissementScalarFieldEnum = {
   id: 'id',
   nom: 'nom',
@@ -127,7 +145,9 @@ exports.Prisma.EtablissementScalarFieldEnum = {
   type: 'type',
   jury: 'jury',
   effectif: 'effectif',
-  adresse: 'adresse'
+  adresse: 'adresse',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CandidatScalarFieldEnum = {
@@ -147,13 +167,17 @@ exports.Prisma.CandidatScalarFieldEnum = {
   secondEpPart: 'secondEpPart',
   centre: 'centre',
   etablissementId: 'etablissementId',
-  presence: 'presence'
+  presence: 'presence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.DisciplineScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug'
+  slug: 'slug',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MatiereScalarFieldEnum = {
@@ -161,20 +185,26 @@ exports.Prisma.MatiereScalarFieldEnum = {
   name: 'name',
   slug: 'slug',
   coefficient: 'coefficient',
-  disciplineId: 'disciplineId'
+  disciplineId: 'disciplineId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.NoteScalarFieldEnum = {
   id: 'id',
   score: 'score',
   matiereId: 'matiereId',
-  candidatId: 'candidatId'
+  candidatId: 'candidatId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CentreScalarFieldEnum = {
   id: 'id',
   centre: 'centre',
-  nb_candidats: 'nb_candidats'
+  nb_candidats: 'nb_candidats',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ContactScalarFieldEnum = {
@@ -218,7 +248,9 @@ exports.Prisma.StudentScalarFieldEnum = {
   sp: 'sp',
   part: 'part',
   orale: 'orale',
-  eps: 'eps'
+  eps: 'eps',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -277,6 +309,8 @@ exports.Gender = exports.$Enums.Gender = {
 };
 
 exports.Prisma.ModelName = {
+  User: 'User',
+  GuestbookEntry: 'GuestbookEntry',
   Etablissement: 'Etablissement',
   Candidat: 'Candidat',
   Discipline: 'Discipline',
