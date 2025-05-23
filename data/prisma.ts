@@ -6,9 +6,9 @@ const seedContacts = async () => {
   if (count === 0) {
     await prisma.contact.createMany({
       data: [
-        { prenom: "Contact 1", nom: "NomContact 1", email: "contact1@gmail.com", phone: "77 530 03 61" , description: "Description 1", adresse: "contact1 home" },
-        { prenom: "Contact 2", nom: "NomContact 2", email: "contact2@gmail.com", phone: "77 530 03 62" , description: "Description 2", adresse: "contact2 home" },
-        { prenom: "Contact 3", nom: "NomContact 3", email: "contact3@gmail.com", phone: "77 530 03 63" , description: "Description 3", adresse: "contact3 home" },
+        { prenom: "Contact 1", nom: "NomContact 1", email: "contact1@gmail.com", phone: "77 530 03 61" , adresse: "contact1 home" },
+        { prenom: "Contact 2", nom: "NomContact 2", email: "contact2@gmail.com", phone: "77 530 03 62" , adresse: "contact2 home" },
+        { prenom: "Contact 3", nom: "NomContact 3", email: "contact3@gmail.com", phone: "77 530 03 63" , adresse: "contact3 home" },
       ],
     });
   }
@@ -46,11 +46,10 @@ export async function addContact(
   email: string,
   phone: string,
   adresse: string,
-  description: string,
 ) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return prisma.contact.create({
-    data: { prenom, nom,email, phone, adresse, description },
+    data: { prenom, nom,email, phone, adresse },
   });
 }
 
@@ -61,12 +60,11 @@ export async function updateContact(
   email: string,
   phone: string,
   adresse: string,
-  description: string,
 ) {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return prisma.contact.update({
     where: { id },
-    data: { prenom, nom,email, phone, adresse, description },
+    data: { prenom, nom,email, phone, adresse },
   });
 }
 
