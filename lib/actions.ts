@@ -31,7 +31,7 @@ export const saveContact = async (prevState: unknown, formData: FormData) => {
                 email: validatedFields.data.email,
                 phone: validatedFields.data.phone,
                 adresse: validatedFields.data.adresse,
-                description: validatedFields.data.description,
+                // description: validatedFields.data.description,
                 updatedAt: new Date().toISOString(),
             }
         })
@@ -60,7 +60,7 @@ export const updateContact = async (id: number, prevState: unknown, formData: Fo
                 email: validatedFields.data.email,
                 phone: validatedFields.data.phone,
                 adresse: validatedFields.data.adresse,
-                description: validatedFields.data.description,
+                // description: validatedFields.data.description,
             },
             where: { id }
         })

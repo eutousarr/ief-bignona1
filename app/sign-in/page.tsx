@@ -28,6 +28,17 @@ const AuthPage: React.FC = async () => {
                 </div>
                 <h1 className={styles.title}>Custom Sign In</h1>
                 <div className={styles.authMethods}>
+                    {
+                        user ? (
+                            <>
+                                <p className={styles.userInfo}>
+                                    Signed in as <b>{user.email}</b>
+                                </p>
+                            </>
+                        ) : (
+                            <p className={styles.userInfo}>Not signed in</p>
+                        )
+                    }
                     <LoginLink
                         className={styles.googleButton}
                         authUrlParams={{

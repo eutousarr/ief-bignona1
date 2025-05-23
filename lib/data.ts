@@ -5,7 +5,7 @@ const ITEMS_PER_PAGE = 5;
 export const getEleves = async (query: string, currentPage: number) => {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
     try {
-        const eleves = await prisma.eleve.findMany({
+        const eleves = await prisma.candidat.findMany({
             skip: offset,
             take: ITEMS_PER_PAGE,
             where: {
@@ -32,21 +32,21 @@ export const getEleves = async (query: string, currentPage: number) => {
     }
 }
 
-export const getEleveById = async (id: string) => {
-    try {
-        const eleve = await prisma.eleve.findUnique({
-            where: { id }
-        });
-        return eleve;
-    } catch (error) {
-        console.log(error)
-        throw new Error("Failed to fetch eleve data");
-    }
-}
+// export const getEleveById = async (id: string) => {
+//     try {
+//         const eleve = await prisma.candidat.findUnique({
+//             where: { id }
+//         });
+//         return eleve;
+//     } catch (error) {
+//         console.log(error)
+//         throw new Error("Failed to fetch eleve data");
+//     }
+// }
 
 export const getElevePages = async (query: string) => {
     try {
-        const eleves = await prisma.eleve.count({
+        const eleves = await prisma.candidat.count({
             where: {
                 OR: [
                     {
