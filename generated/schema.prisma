@@ -1,0 +1,183 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Etablissement {
+  id        Int               @id @default(autoincrement())
+  nom       String            @unique
+  slug      String            @unique
+  type      TypeEtablissement @default(COLLEGE)
+  jury      Int?
+  effectif  Int?
+  adresse   String
+  candidats Candidat[]        @relation("EtablissementToCandidat")
+  Student   Student[]
+
+  @@map("etablissements")
+}
+
+model Candidat {
+  id              Int           @id @default(autoincrement())
+  code            String?
+  num             Int?
+  prenom          String?
+  nom             String?
+  sexe            String?
+  datnais         String?
+  lieunais        String?
+  aptitude        String?
+  option          String?
+  section         String?
+  jury            Int?
+  firstEpPart     String?       @map("first_ep_part")
+  secondEpPart    String?       @map("ep_part")
+  centre          String?
+  etablissementId Int
+  Etablissement   Etablissement @relation("EtablissementToCandidat", fields: [etablissementId], references: [id])
+  presence        PresenceType  @default(PRESENT)
+  notes           Note[]        @relation("CandidatToNote")
+
+  @@map("candidats")
+}
+
+model Discipline {
+  id       Int       @id @default(autoincrement())
+  name     String
+  slug     String    @unique
+  matieres Matiere[]
+
+  @@index([slug])
+  @@map("disciplines")
+}
+
+model Matiere {
+  id           Int        @id @default(autoincrement())
+  name         String
+  slug         String     @unique
+  coefficient  Int        @default(1)
+  disciplineId Int
+  discipline   Discipline @relation(fields: [disciplineId], references: [id])
+  notes        Note[]     @relation("MatiereToNote")
+
+  @@index([slug])
+  @@map("matieres")
+}
+
+model Note {
+  id         Int      @id @default(autoincrement())
+  score      Int      @default(0)
+  matiereId  Int
+  candidatId Int
+  candidats  Candidat @relation("CandidatToNote", fields: [candidatId], references: [id])
+
+  matiere Matiere @relation("MatiereToNote", fields: [matiereId], references: [id])
+
+  @@map("notes")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Centre {
+  id           Int     @id @default(autoincrement())
+  centre       String?
+  nb_candidats Int?
+
+  @@map("centres")
+}
+
+model Contact {
+  id          Int      @id @default(autoincrement())
+  prenom      String
+  nom         String
+  email       String   @unique(map: "contact_email_key")
+  suggessions String?
+  phone       String?  @unique(map: "contact_phone_key")
+  adresse     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+
+  @@map("contacts")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+
+model Student {
+  id              Int           @id @default(autoincrement())
+  ien             String
+  etablissementId Int
+  Etablissement   Etablissement @relation(fields: [etablissementId], references: [id])
+  numero          Int
+  prenom          String
+  nom             String
+  dateNaissance   DateTime
+  lieuNaissance   String?
+  photo           String?
+  statut          Statut        @default(PU)
+  epOptionnel     EpOptionnel   @default(ESPAGNOL)
+  aptitude        Aptitude      @default(INAPTE)
+  sexe            Gender        @default(MASCULIN)
+  total           Float?
+  moyenne         Float?
+  rang            Int?
+  resultat        String?
+  red             Float?
+  dic             Float?
+  tsq             Float?
+  svt             Float?
+  lv1             Float?
+  mat             Float?
+  hg              Float?
+  ec              Float?
+  sp              Float?
+  part            Float?
+  orale           Float?
+  eps             Float?
+
+  @@map("students")
+}
+
+enum Aptitude {
+  APTE
+  INAPTE
+}
+
+enum EpOptionnel {
+  ESPAGNOL
+  ALLEMAND
+  ITALIEN
+  ARABE
+  PORTUGAIS
+  RUSSE
+  TECHNOLOGIE
+  ECONOMIE_FAMILIALE
+}
+
+enum Gender {
+  MASCULIN
+  FEMININ
+}
+
+enum Statut {
+  PU
+  PR
+  CL
+}
+
+enum TypeEtablissement {
+  COLLEGE
+  LYCEE
+  MIXTE_LYCEE_COLLEGE
+  COLLEGE_PRIVE
+  COLLEGE_PRIVE_MIXTE
+  LYCEE_PRIVE_MIXTE
+}
+
+enum PresenceType {
+  PRESENT
+  ABSENT
+}
