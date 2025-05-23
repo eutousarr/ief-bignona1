@@ -22,7 +22,7 @@ model User {
 
 model GuestbookEntry {
   id      String @id @default(uuid())
-  name String
+  name    String
   userId  String
   message String
 
