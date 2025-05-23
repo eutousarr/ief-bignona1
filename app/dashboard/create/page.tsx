@@ -1,3 +1,3 @@
 export default function pagCreatePage() {
-  return <div>Create in dashborad</div>
+  return <div>Create in dashboard</div>
 }
