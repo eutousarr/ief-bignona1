@@ -8,23 +8,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id String @id @unique
-  email String
-  firstName String
-  lastName String
+  id           String           @id @unique
+  email        String
+  firstName    String
+  lastName     String
   profileImage String
-  Guestbook GuestbookEntry[]
+  Guestbook    GuestbookEntry[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
 
 model GuestbookEntry {
-  id String @id @default(uuid())
-  userId String
+  id      String @id @default(uuid())
+  userId  String
   message String
 
   createdAt DateTime @default(now())
@@ -134,16 +132,16 @@ model Centre {
 }
 
 model Contact {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   prenom      String
   nom         String
-  email       String   @unique(map: "contact_email_key")
+  email       String  @unique(map: "contact_email_key")
   suggessions String?
-  phone       String?  @unique(map: "contact_phone_key")
+  phone       String? @unique(map: "contact_phone_key")
   adresse     String?
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("contacts")
 }

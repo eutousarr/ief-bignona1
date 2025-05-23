@@ -12,7 +12,7 @@ export type Contact = {
   email: string;
   phone: string| null;
   adresse: string| null;
-  // description: string | null;
+  suggessions: string | null;
 };
 
 export const ContactDetail = ({ contacts }: { contacts: Contact[] }) => {
